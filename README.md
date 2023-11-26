@@ -1,10 +1,10 @@
 # Projet: Conception et développement d'un site web pour la gestion des opérations de don de sang
 
 ## Authors
-- [@Alouache Hafsa](https://wwwgitgithub.com/octokatherine)
-- [@Allali Hajar](https://www.github.com/octokatherine)
-- [@Bamouh Imane](https://www.github.com/octokatherine)
-- [@Belyamani Meryem](https://www.github.com/octokatherine)
+- [@Alouache Hafsa](https://github.com/ALOUACHE-Hafsa)
+- [@Allali Hajar](https://github.com/Allalihajar)
+- [@Bamouh Imane](https://github.com/bamouhimane)
+- [@Belyamani Meryem](https://github.com/meryem-belyamani)
 
 ![left 100%](https://github.com/bamouhimane/Blood_donation/assets/125123163/ca4bc8cd-f89a-4808-bef9-ae074ae0db75)
 
@@ -47,25 +47,25 @@ Ensuite, nous présentons l’architecture conçue, les modules et la base de do
 
   - **Description des utilisateurs** :
     
-Les utilisateurs du système de gestion des opéerations de don de snag sont les employés et l’administration.
+Les utilisateurs du système de gestion des opéerations de don de sang sont les employés et l’administration.
 Chacun de ces acteurs joue un rôle spécifique dans le processus de gestion de notre site. 
 
 - Employés : les employés sont divisés en deux parties :
   
     - responsbales de reception : qui sont conçu pour la gestion des comptes des donneurs de sang, ils ajoutent les donneurs et ils ont la main aussi sur toute modification ou suppression et meme consultation des comptes ajoutés. 
-    - infermiers : qui sont conçu pour la gestion des comptes des demandeurs de sang, ils ajoutent les demandeurs et peuvent effectués des opérations comme la modification, la suppression, la consultation des ces comptes, ils peuvent aussi voir l'etat de la demande à chaque moment si elle est assurée ou bien encore en cours . 
+    - infirmiers : qui sont conçu pour la gestion des comptes des demandeurs de sang, ils ajoutent les demandeurs et peuvent effectués des opérations comme la modification, la suppression, la consultation des ces comptes, ils peuvent aussi voir l'etat de la demande à chaque moment si elle est assurée ou bien encore en cours . 
 
-- Administration : L’administration gère les comptes des responsables de reception et les infermiers, et donne accès à ces employès au site web en leur offrant un nom d'utilsateur et un mot de passe pour que chacun aura un environnement de travail unique.
+- Administration : gère les comptes des responsables de reception et les infirmiers, et donne accès à ces employès au site web en leur offrant un nom d'utilsateur et un mot de passe pour que chacun aura un environnement de travail unique.
 
   - **Fonctionnalités attendues du système**
 
 Afin d'avoir un site web performant, les fonctionnalités attendues seront soigneusement intégrées pour répondre à l'objectif de conception de se système. Ces fonctionnalités sont: 
 - L’administration :
-    - Création et suppression des comptes pour les responsables de reception et les infermiers. 
+    - Création et suppression des comptes pour les responsables de reception et les infirmiers. 
 Les responsables de reception :
     - Traitement des opérations de don de sang.
     - Avoir accès à son propre profil où il peut ajouter les demandes de don, les suprrimées, modifiées ainsi que les consultées. 
-- Les infermiers :
+- Les infirmiers :
     - Traitement des opérations de demandes de sang. 
     - Avoir accès à leur propre profil où ils peuvent ajouter les demandes de don, les suprrimées, modifiées ainsi que les consultées.
 
@@ -232,7 +232,7 @@ informations sur nous et sur le site, son objectif et son fonctionnement, et une
 
  Pour accéder à la plateforme, les employé devront saisir leur nom d'utilsateur et leur mot
  de passe, puis cliquer sur le bouton ”login” (voir la figure 2.1). Une fois connectés,
-les utilisateurs seront redirigés vers l'environnement des responsbales de réception ou des infermiers selon les données saisies lors d'authentification, ainsi avoir un contrôle total sur leur session.
+les utilisateurs seront redirigés vers l'environnement des responsbales de réception ou des infirmiers selon les données saisies lors d'authentification, ainsi avoir un contrôle total sur leur session.
 Pour les administrateurs, ils ont une page d'authentification unique qui les redirige vers l'environnement d'adminsitration ainsi avoir de meme un contrôle total sur leur session.
 
  <p align="center">
@@ -247,57 +247,57 @@ Pour les administrateurs, ils ont une page d'authentification unique qui les red
   
     - **Connexion en tant qu'infirmier :**
       
-   Une fois authentifié, l'infirmier aura la main sur la gestion des opérations de demandes de sang, il sera redirigé en premier vers la page de consultation de tous les demandes effectués notant que ces demandes concernent tous les centres (voir la figure 4-1).
-- l'infirmier peut ajouter une demande en remplissant tous les champs necessaires sachant qu'il ne faut pas ajouter un demandeur déja existant dans le meme jour (voir la figure 4-2).
-- l'infirmier peut aussi modifier les données d'une demande, il est important de noter qu'il n'aura la main que sur les demandes de son centre (voir la figure 4-3).
-- l'infirmier peut consulter les demandes qui sont traitées et celles qui sont en cours afin d'avoir une gestion efficace des demandes de sang (voir la figure 4-4).
+   Une fois authentifié, l'infirmier aura la main sur la gestion des opérations de demandes de sang, il sera redirigé en premier vers la page de consultation de tous les demandes effectués notant que ces demandes concernent tous les centres (voir la figure 3-1).
+- l'infirmier peut ajouter une demande en remplissant tous les champs necessaires sachant qu'il ne faut pas ajouter un demandeur déja existant dans le meme jour (voir la figure 3-2).
+- l'infirmier peut aussi modifier les données d'une demande, il est important de noter qu'il n'aura la main que sur les demandes de son centre (voir la figure 3-3).
+- l'infirmier peut consulter les demandes qui sont traitées et celles qui sont en cours afin d'avoir une gestion efficace des demandes de sang (voir la figure 3-4).
 
 | ![image](https://github.com/bamouhimane/Blood_donation/assets/125123163/a8775d90-aafe-4465-8b64-763be7aeea9b) | ![image2](https://github.com/bamouhimane/Blood_donation/assets/125123163/fa58f7a0-5d1b-465e-bb48-766248d2c89f) |
 | --- | --- |
-| **(figure 4.1)** | **(figure 4.2)** |
+| **(figure 3.1)** | **(figure 3.2)** |
 
 | ![image3](https://github.com/bamouhimane/Blood_donation/assets/125123163/f738b0a6-89a7-484e-8a20-7e2abc788a4f) | ![image4](https://github.com/bamouhimane/Blood_donation/assets/125123163/85507a7f-eadf-44db-abfa-72e3acf2ed51) |
 | --- | --- |
-| **(figure 4.3)** | **(figure 4.4)** |
+| **(figure 3.3)** | **(figure 3.4)** |
 
 
 
   - **Connexion en tant que responsable de reception :**
     
-     Une fois authentifié, le responsable de reception aura la main sur la gestion des opérations de don de sang, il sera redirigé en premier vers la page de consultation de tous les dons effectués notant que ces dons concernent tous les centres (voir la figure 5-1).
-    - le responsable de reception peut modifier les données d'une opération de don, il est important de noter qu'il n'aura la main que sur les données de dons de sang de son centre (voir la figure 5-2).
-- le responsable de reception peut ajouter une opération de don en remplissant tous les champs necessaires sachant qu'il ne faut pas ajouter un opération de don qui existe déja dans le meme jour (voir la figure 5-3).
+     Une fois authentifié, le responsable de reception aura la main sur la gestion des opérations de don de sang, il sera redirigé en premier vers la page de consultation de tous les dons effectués notant que ces dons concernent tous les centres (voir la figure 4-1).
+    - le responsable de reception peut modifier les données d'une opération de don, il est important de noter qu'il n'aura la main que sur les données de dons de sang de son centre (voir la figure 4-2).
+- le responsable de reception peut ajouter une opération de don en remplissant tous les champs necessaires sachant qu'il ne faut pas ajouter un opération de don qui existe déja dans le meme jour (voir la figure 4-3).
 
 | ![image](https://github.com/bamouhimane/Blood_donation/assets/125123163/a993c540-e342-4a89-82f0-5948c2d51d28) | ![image2](https://github.com/bamouhimane/Blood_donation/assets/125123163/063e4ad1-b0c4-44eb-904d-b6fc64354c60) |
 | --- | --- |
-| **(figure 5.1)** | **(figure 5.2)** |
+| **(figure 4.1)** | **(figure 4.2)** |
 
 <p align="center">
   <img src="https://github.com/bamouhimane/Blood_donation/assets/125123163/fc50c653-eeff-43a2-b80b-d55647492746" width="60%" alt="Description de l'image">
 </p>
 
-<p align="center"><strong>(Figure 1.5)</strong></p>
+<p align="center"><strong>(Figure 4.3)</strong></p>
 
 - **Connexion en tant qu'Administrateur :**
   
-Après une authentification réussie, l'administrateur peut accéder à l'espace de gestion des employés pour faire la création,la modification,la consultation ou la suppression.
+Après une authentification réussie, l'administrateur peut accéder à l'espace de gestion des employés pour faire la création,la modification,la consultation ou la suppression (voir la figure 5-1).
  <p align="center">
   <img src="https://github.com/bamouhimane/Blood_donation/assets/125123163/40ee0dc4-27fa-46cc-864a-17ae2999c875" width="70%" alt="Description de l'image">
 </p>
-  <p align="center"><strong>(Figure 2.1)</strong></p>
+  <p align="center"><strong>(Figure 5.1)</strong></p>
 
-- Création d'un nouveau compte: l'administrateur peut créer un compte si il a rempli tous les champs et si le nom d'utilisateur et le mot de passe sont uniques(n'existent pas déjà dans la base de données),sinon une erreur s'affiche.(voir la figure 3-2)
+- Création d'un nouveau compte: l'administrateur peut créer un compte si il a rempli tous les champs et si le nom d'utilisateur et le mot de passe sont uniques(n'existent pas déjà dans la base de données),sinon une erreur s'affiche.(voir la figure 5-2)
 - Modification d'un compte: l'administrateur peut modifier un compte si il rempli tous les champs et si le nom d'utilisateur et le CNIE existe déjà dans la base de données,sinon une erreur s'affiche.
-- Suppression d'un compte: afin de supprimer un compte,l'administrateur doit entre le CNIE sécifique à ce compte qui doit etre déjà existant.(voir la figure 3-3)
-- Consultation : l'administrateur peut consulter les  comptes existants dans la base de données (voir la figure 3-4).Il est possible de saisir le CNIE d'un compte pour voir ces détails(voir la figure 3-5).
+- Suppression d'un compte: afin de supprimer un compte,l'administrateur doit entre le CNIE sécifique à ce compte qui doit etre déjà existant.(voir la figure 5-3)
+- Consultation : l'administrateur peut consulter les  comptes existants dans la base de données (voir la figure 5-4).Il est possible de saisir le CNIE d'un compte pour voir ces détails(voir la figure 5-5).
 
 | ![image](https://github.com/bamouhimane/Blood_donation/assets/125123163/6f55471f-47c7-41d6-a65b-27763639d419) | ![image2](https://github.com/bamouhimane/Blood_donation/assets/125123163/9993d7e7-8e10-47ef-917d-87e323255896) |
 | --- | --- |
-| **(figure 3.2)** | **(figure 3.3)** |
+| **(figure 5.2)** | **(figure 5.3)** |
 
 | ![image3](https://github.com/bamouhimane/Blood_donation/assets/125123163/e8c94909-9a51-459d-9c15-cd8eaf3cb387) | ![image4](https://github.com/bamouhimane/Blood_donation/assets/125123163/d2a053e6-51cc-4dc5-ab2b-5ea71e9bf83b) |
 | --- | --- |
-| **(figure 3.4)** | **(figure 3.5)** |
+| **(figure 5.4)** | **(figure 5.5)** |
 
 
 ## Licence
