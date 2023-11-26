@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns:faces="jakarta.faces"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:c="jakarta.tags.core"
+        xmlns:fn="jakarta.tags.functions"
+        xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Formulaire d'Inscription</title>
+  <style>
+        /* Votre autre style ici */
+
+        /* Style pour augmenter la taille du texte */
+        .large-text {
+            font-size: 18px; /* Ajustez la taille selon vos besoins */
+        }
+
+       
+            body {
+	    margin: 0;
+	    padding: 0;
+	    maring-bottom:20px;
+	    background-image: url("https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&amp;w=2074&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+	}
+
+
+
+        .background-image {
+           /* background-image: url("https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&amp;w=2074&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");*/
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .brightness-filter {
+            /* filter: brightness(0.7);
+            opacity:0.8;*/
+        }
+
+        #header {
+            background-color: #d9ead3;
+            display: flex;
+            position: fixed;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            z-index:100;
+        }
+
+        .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; /* Ajustez la marge à gauche pour augmenter l'espace entre le logo et le texte */
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        
+        
+   .section1 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    text-align: center;
+	}.bonjour{
+	background-color:white;
+	}
+
+
+
+.section1 h1 {
+    color: #276193;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    margin-top: 600px; /* Ajout de la marge au-dessus du titre */
+    font-size: 30px;
+    text-decoration: underline;
+    
+}
+
+.section1 h1 span {
+    color: #6c805d;
+    text-decoration: underline;
+}
+
+.section1 p {
+    margin: 20px; /* Ajout de la marge autour du paragraphe */
+    text-align: center;
+    line-height: 1.5;
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+	border-radius: 8px;
+	background: transparent;
+	backdrop-filter: blur(5px);
+	    font-size: 20px;
+	
+	     
+    /*background-color:white;*/
+    
+}
+	h2{
+	color:red;
+	margin-left:10px;
+	}
+	
+	
+
+
+
+
+   
+    </style>
+</h:head>
+
+<h:body>
+    <div class="background-image brightness-filter"></div>
+
+    <div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a class="active" href="acceuilDemande.xhtml">Home</a></li>
+                <li><a href="demandeur.xhtml">Ajouter une demande</a></li>
+                <li><a href="modification.xhtml">modifier une demande</a></li>
+                <li><a href="demandeTraiter.xhtml">demandes à traiter</a></li>
+                 <li><a href="home.xhtml">log out</a></li>
+                
+            </ul>
+        	</nav>
+    	</div>  
+    	 
+     <div class="section1" id="sec1">
+    
+            <div  class="Bonjour"></div>
+             <div>
+        <h2 style="color: red; margin-left: 400px;">hi</h2>
+    </div>
+            <h1>Bonjour sur Votre  <span>espace</span></h1>
+            <p>
+                bienvenue sur votre espace infirmier dédié à la gestion des demandes de sang. <br/> 
+                 "Ensemble, contribuons à sauver des vies et à faciliter le processus de don de sang".
+            </p>
+            
+            <h:form id="form" >
+    <p:growl id="msgs" showDetail="true"/>
+                 
+    
+<div class="table-container" style="margin-left: 85px;margin-right: 85px;margin-top: 50px;margin-bottom: 30px;">
+ <p:dataTable id="demandeur" var="demandeur" value="#{inscriptionBean.getDemandeurs()}" editable="true"
+    scrollable="true" scrollHeight="600" >
+              
+          
+  <p:column headerText="CNIE">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.CNIE}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText id="modelInput" value="#{demandeur.CNIE}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="nom">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.nom}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{demandeur.nom}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="adresse">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.adresse}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{demandeur.adresse}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="Téléphone">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.telephone}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.telephone}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Sexe">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.sexe}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.sexe}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Âge" style="width:18px">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.age}"  />
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.age}" style="width:80%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Date de Naissance">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.dateNaissance}"/>
+        </f:facet>
+       
+        <f:facet name="input">
+         <p:inputText  value="#{demandeur.dateNaissance}" style="width:80%"/>
+                </f:facet>
+        
+        
+    </p:cellEditor>
+</p:column>
+      <p:column headerText="Groupe Sanguin">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.grpS}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText value="#{demandeur.grpS}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Quantité de Sang">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.qteSang}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.qteSang}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Date de Demande">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.dateDemande}"/>
+        </f:facet>
+        <f:facet name="input">
+          <p:inputText  value="#{demandeur.dateDemande}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="État de Demande">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.etat_demande}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.etat_demande}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+        
+            
+            </p:dataTable>
+            </div>
+            </h:form>
+        </div>
+        
+    
+
+</h:body>
+
+
+</html>

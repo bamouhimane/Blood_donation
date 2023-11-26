@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns:faces="jakarta.faces"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:c="jakarta.tags.core"
+        xmlns:fn="jakarta.tags.functions"
+        xmlns:p="http://primefaces.org/ui">
+
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background-image: url(https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&amp;w=2074&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+	
+}
+.background-image {
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    filter: brightness(0.5);
+   
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    
+}
+
+.brightness-filter {
+    filter: brightness(0.8);
+    opacity:0.8;
+}
+ #header {
+            background-color: #d9ead3;
+            display: flex;
+            position: fixed;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            z-index:100;
+            margin:0;
+            top:0;
+            left:0;
+        }
+
+        .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; 
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        /* Style pour le headerText */
+.ui-datatable th.ui-state-default {
+   
+    color: #608053; /* Couleur du texte */
+}
+
+/* Style pour le texte à l'intérieur des cellules du tableau */
+.ui-datatable td {
+    color: #333333; /* Couleur du texte dans les cellules */
+}
+
+/* Style pour le texte dans les cellules éditables */
+.ui-cell-editing {
+    background-color: green; /* Couleur de fond pour les cellules éditables */
+    color: #ffffff; /* Couleur du texte dans les cellules éditables */
+}
+.ui-datatable.ui-datatable .first-column td {
+    color: red; /* Couleur du texte dans les cellules de la première colonne */
+    font-weight: bold; 
+}
+	     .section1 {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #222; /* Darker black color */
+            text-align: center;
+            margin-top:50px;
+            margin-bottom:0;
+        }
+
+       .section1 h1 {
+            color: #000; /* Even darker black color */
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            margin: 0;
+            margin-top: 50px;
+            font-size: 36px; /* Increased font size */
+			text-decoration: underline;
+    		text-decoration-color: #608053; /* Couleur du soulignement */
+    		/*text-decoration-style: double; /* Style du soulignement (par exemple, double, dotted, dashed) */
+    		text-decoration-thickness: 2px;
+        }
+
+        .section1 h1 span {
+            color: #6c805d; /* Set the desired color for the word "Site" */
+        }
+
+        .section1 p {
+		    margin: 5px;
+		    margin-bottom: 20px;
+		    margin-top: 40px;
+		    text-align: center;
+		    line-height: 1.5;
+		    font-family: 'sans-serif;
+		    max-width: 600px;
+			background: transparent;
+			backdrop-filter: blur(8px);
+			font-size:20px;
+			padding:5px;
+		}
+
+		 .section1 p span {
+            color: #6c805d; /* Set the desired color for the word "Site" */
+            font-weight:bold;
+        }
+        
+      
+        
+        
+        
+</style>
+
+<h:head>
+    <title> Formulaire d'Inscription</title>
+</h:head>
+
+<h:body>
+
+<div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a href="acceuilDemande.xhtml">Home</a></li>
+                <li><a href="demandeur.xhtml">Ajouter une demande</a></li>
+                <li><a  class="active"  href="modification.xhtml">modifier une demande</a></li>
+                <li><a href="demandeTraiter.xhtml">demandes à traiter</a></li>
+                 <li><a href="home.xhtml">log out</a></li>
+                
+            </ul>
+        	</nav>
+    	</div>  
+  <div class="background-image brightness-filter"></div>
+<h:form id="form" >
+        <div class="section1" id="sec1">
+            <h1><span>Modifier</span> les Informations des Demandeurs</h1>
+            <p>
+            Bienvenue dans l'interface de modification des informations des demandeurs de sang.<br/>
+            En tant que professionnel de la santé, vous avez le pouvoir d'effectuer des modifications
+            pour garantir l'exactitude des données de <span>votre centre.</span>
+            </p>
+            
+        </div>
+        <h3 style="font-family: 'Georgia', 'Times New Roman', Times, serif;color: #000;margin-left:100px;margin-top:40px;margin-bottom:0; backdrop-filter: blur(8px);width:500px">Modifier les données de vos patients:</h3>
+    <p:growl id="msgs" showDetail="true"/>
+<div class="table-container" style="margin-left: 85px;margin-right: 85px;margin-top: 70px;margin-bottom: 50px;">
+ <p:dataTable id="demandeur" var="demandeur" value="#{inscriptionBean.demandeClone}" editable="true"
+    scrollable="true" scrollHeight="600" >
+              
+              
+            <p:ajax event="rowEdit" listener="#{inscriptionBean.onRowEdit}" update=":form:msgs"/>
+            <p:ajax event="rowEditCancel" listener="#{inscriptionBean.onRowCancel}" update=":form:msgs"/>
+              
+             
+  <p:column headerText="CNIE">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.CNIE}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText id="modelInput" value="#{demandeur.CNIE}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="nom">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.nom}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{demandeur.nom}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="adresse">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{demandeur.adresse}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{demandeur.adresse}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="Téléphone">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.telephone}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.telephone}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Sexe">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.sexe}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.sexe}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Âge" style="width:32px">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.age}"  />
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.age}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Date de Naissance">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.dateNaissance}"/>
+        </f:facet>
+       
+        <f:facet name="input">
+		<p:calendar id="dateNaissance" value="#{demandeur.dateNaissance}" required="true"  style="margin-bottom: 10px;"/>
+        </f:facet>
+        
+        
+    </p:cellEditor>
+</p:column>
+      <p:column headerText="Groupe Sanguin">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.grpS}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText value="#{demandeur.grpS}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Quantité de Sang">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.qteSang}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.qteSang}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Date de Demande">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.dateDemande}"/>
+        </f:facet>
+        <f:facet name="input">
+		<p:calendar id="dateDemande" value="#{demandeur.dateDemande}" required="true"  style="margin-bottom: 20px;"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="État de Demande">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{demandeur.etat_demande}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{demandeur.etat_demande}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+        <p:column style="width:3rem">
+                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+            </p:column>   
+            
+            
+            </p:dataTable>
+            </div>
+            </h:form>
+</h:body>
+
+</html>

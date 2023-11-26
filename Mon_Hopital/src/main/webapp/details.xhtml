@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Détails du Compte</title>
+    <style type="text/css">
+        
+    	#navbar {
+		    background-color: #d9ead3;
+		    display: flex;
+		    align-items: center;
+		    padding: 10px;
+		    width: 100%;
+		    z-index: 100;
+		}
+		.logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; /* Ajustez la marge à gauche pour augmenter l'espace entre le logo et le texte */
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #efedea;
+            margin: 20px;
+            text-align: center;
+            margin: 0;
+		padding: 0;
+		height: 100vh;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+            
+        }
+
+        h2 {
+            color: black;
+            margin-bottom: 10px;
+            margin-top: 70px;
+        }
+
+        .details-container {
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+
+        .value {
+            color: #555;
+            flex: 2;
+            text-align: left;
+        }
+
+        .date {
+            color: #e74c3c;
+        }
+    </style>
+</h:head>
+
+<h:body>
+	<div id="navbar">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+    	</div>
+    <h2>Détails du Compte</h2>
+
+    <div class="details-container">
+        <div class="detail-row">
+            <div class="label">Nom d'utilisateur:</div>
+            <div class="value">#{inscription.compteDetails[inscription.CNIEToDisplay].username}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">CNIE:</div>
+            <div class="value">#{inscription.compteDetails[inscription.CNIEToDisplay].CNIE}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Nom:</div>
+            <div class="value">#{inscription.compteDetails[inscription.CNIEToDisplay].nom}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Prénom:</div>
+            <div class="value">#{inscription.compteDetails[inscription.CNIEToDisplay].prenom}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Fonction:</div>
+            <div class="value">#{inscription.compteDetails[inscription.CNIEToDisplay].fonction}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Date de création :</div>
+            <div class="date">
+                <h:outputText value="#{inscription.compteDetails[inscription.CNIEToDisplay].creationDate}">
+                    <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                </h:outputText>
+            </div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Dernière modification:</div>
+            <div class="date">
+                <h:outputText value="#{inscription.compteDetails[inscription.CNIEToDisplay].lastModifiedDateAsDate}">
+                    <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                </h:outputText>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

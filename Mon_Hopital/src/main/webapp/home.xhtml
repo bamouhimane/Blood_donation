@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin to ensure full height */
+        }
+
+        #header {
+            background-color: #d9ead3;
+            display: flex;
+            position: fixed;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            z-index:100;
+            
+        }
+
+        .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; /* Ajustez la marge à gauche pour augmenter l'espace entre le logo et le texte */
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        
+
+       
+     
+        
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://previews.123rf.com/images/wrightstudio/wrightstudio1909/wrightstudio190900216/130498133-journ%C3%A9e-du-don-de-sang-concept-m%C3%A9dical-sur-%C3%A9cran-virtuel.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.25;
+        }
+
+        .section1 {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #222; /* Darker black color */
+            text-align: center;
+        }
+
+        .section1 h1 {
+            color: #000; /* Even darker black color */
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            margin-top: 350px;
+            font-size: 36px; /* Increased font size */
+        }
+
+        .section1 h1 span {
+            color: #6c805d; /* Set the desired color for the word "Site" */
+        }
+
+        .section1 p {
+		    margin: 5px;
+		    margin-bottom: 180px; /* Ajustez la marge inférieure selon vos besoins */
+		    text-align: center;
+		    line-height: 1.5;
+		    font-family: 'Arial', sans-serif;
+		    max-width: 600px;
+		}
+
+       	.content-section2 {
+		    padding: 20px;
+		    display: flex;
+		    justify-content: space-between;
+		}
+		
+		.employee-section,
+		.admin-section {
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    text-align: center;
+		    flex: 6;
+		    padding: 20px;
+		    border: 5px solid #ccc;
+		    border-radius: 10px;
+		    margin: 10px;
+		}
+		
+		.logo2 {
+		    margin-top: 10px;
+		    margin-bottom: 10px;
+		    margin-right:30px;
+		}
+		
+		.employee-section h2,
+		.admin-section h2,
+		.employee-section p,
+		.admin-section p {
+		    margin: 10px 0; /* Add some margin to separate the elements */
+		}
+
+       
+        .employee-section:hover {
+		    border-color: #cfe3c1; 
+		    
+		}
+		
+		.admin-section:hover {
+		    border-color: #cfe3c1; /* Change border color on hover */
+		}
+		
+		
+		
+		
+		.section3 {
+		    display: flex;
+		    padding: 60px;
+		    border: 2px solid #ccc;
+		    border-radius: 10px;
+		    margin: 20px 0;
+		    align-items: center; /* Aligner les éléments au centre verticalement */
+		}
+		
+		.section3 .text-column {
+		    flex: 1;
+		}
+		   
+		
+		
+		.section3 .img-column {
+		    flex: 1;
+		    text-align: center;
+		}
+		
+		.section3 h2 {
+		    font-size: 40px;
+		    margin-bottom: 30px;
+		    margin-left:90px;
+		}
+		
+		.text {
+		    color: #6c805d;
+		    
+		  }
+		.section3 p {
+		    font-size: 16px;
+		    line-height: 1.5;
+		    color: #333;
+		    margin-bottom: 10px;
+		}
+		.title2 {
+            color: #6c805d; /* Couleur du texte "Mission" */
+        }
+		
+		.section3 img {
+		    max-width: 90%; 
+		    height: auto;
+		    border-radius: 10%; /* Pour rendre l'image circulaire */
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    margin-top: 20px;
+		    opacity: 1;
+		    
+		 }	
+		
+		
+		.section4 h3 {
+		    margin: 10px 0;
+    		transform: translateY(-30px);
+    		font-family: 'Bookman old style', serif;
+    		color: #333;
+    		
+		}
+		
+		.contact-info {
+		    margin: 20px 0;
+		}
+		
+		.section4 {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    flex-wrap: wrap;
+		    width: 100%;
+		    background-color: #e6efe3;
+		    border: 2px solid #e6efe3; /* Add a border with the desired color */
+		    padding: 30px; /* Add padding to the contact card */
+		}
+		
+		.user-icon {
+		    width: 15%;
+		    margin-bottom: 5px;
+		}
+		
+		.contact-info {
+		    text-align: center;
+		    flex: 1;
+		}
+		
+		.contact-title {
+		    width: 100%;
+		    text-align: center;
+		    margin-top: 10px;
+		}
+		
+		.contact-info:nth-child(2),
+		.contact-info:nth-child(3) {
+		    border-right: 1px solid #000; /* Vertical line between the first two items */
+		}
+		
+		.contact-info:nth-child(1),
+		.contact-info:nth-child(4) {
+		    border-left: 1px solid #000; /* Vertical line between the other two items */
+		}
+		
+		.section5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .section5 h2 {
+            color: bold; /* Définir la couleur verte pour le mot "Team" */
+            margin-bottom: 70px; /* Ajouter plus d'espace en dessous du titre */
+            font-size:35px;
+        }
+        .section5 .h2 span {
+            color: #d9ead3;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            margin-bottom: 20px;
+            margin-right: 70px; /* Ajout d'espace entre les images */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 10px solid #d9ead3; /* Ajout d'une bordure avec la couleur #d9ead3 */
+            padding: 15px; /* Ajout d'un espace à l'intérieur du cadre */
+            border-radius: 10px;
+            background-color: #f3f6f4; /* Définir le fond du cadre en gris */
+        }
+
+        .team-member:last-child {
+            margin-right: 0;
+        }
+
+        .member-frame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member img {
+            width: 150px; /* Ajustez la taille selon vos besoins */
+            height: 150px;
+            border-radius: 50%; /* Convertir l'image en cercle */
+            object-fit: cover;
+            border: 2px solid #fff; /* Ajouter une bordure blanche */
+            margin-bottom: 10px; /* Ajout d'espace entre l'image et le texte */
+        }
+
+        .member-info {
+            font-weight: bold;
+            margin-bottom: 5px; /* Ajout d'espace entre le texte et les icônes */
+        }
+
+        .social-icons {
+            margin-top: 5px; /* Ajout d'espace entre le texte et les icônes */
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 30px; /* Ajustez la taille selon vos besoins */
+            height: 30px;
+        }
+        
+		#navbar a:focus,
+		#navbar a:hover {
+    		color: #608053;
+		}
+
+		
+		
+
+		
+    </style>
+</h:head>
+
+<h:body>
+    <h:form>
+        <!-- Section 1: Menubar (Navbar) with PrimeFaces -->
+        <div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a class="active" href="#sec1">Home</a></li>
+                <li><a href="#sec2">Services</a></li>
+                <li><a href="#sec5">Team</a></li>
+                <li><a href="#sec3">About Us</a></li>
+                <li><a href="#sec4">Contact</a></li>
+            </ul>
+        	</nav>
+    	</div>   
+        <div class="section1" id="sec1">
+            <div class="background-image"></div>
+            <h1>Bonjour sur Blood<span>Site</span></h1>
+            <p>
+                Notre plateforme est conçue pour la gestion des opérations de don de sang afin d'offrir aux malades un service plus rapide et efficace tout en permettant aux responsables une gestion optimale de leurs opérations.
+            </p>
+        </div>
+
+		<div class="section2" id="sec2">
+		    <div class="content-section2">
+		        <p:outputLabel for="employeeSection" styleClass="employee-section">
+		        	<div class="logo2">
+		        		<img src="https://cdn-icons-png.flaticon.com/128/912/912318.png" alt="Logo2" />
+		        	</div>
+		            <h2>Espace des employés</h2>
+		            <p>Espace réservé aux responsables de réception et aux infirmiers pour la gestion des enregistrements des demandes et des dons de sang</p>
+		        </p:outputLabel>
+		        <p:commandButton id="employeeSection" action="#{login_users.redirectToEmployeeLogin}" style="display:none;"/>
+		
+		        <p:outputLabel for="adminSection" styleClass="admin-section">
+		        	<div class="logo2">
+		        		<img src="https://cdn-icons-png.flaticon.com/128/11494/11494322.png" alt="Logo2" />
+		        	</div>
+		            <h2>Espace d'administration</h2>
+		            <p>Espace réservé aux administrateurs pour une gestion efficace des comptes des responsables de réception et des infirmiers</p>
+		        </p:outputLabel>
+		        <p:commandButton id="adminSection" action="#{admin_login.redirectToAdminLogin}" style="display:none;"/>
+		    </div>
+		</div>
+		<div class="section5" id="sec5">
+    <h2>Our Amazing <span class="text">Team</span></h2>
+
+    <div class="team-members">
+        <div class="team-member">
+            <div class="member-frame">
+                <img src="image1.jpeg" alt="Team Member 1" />
+                <div class="member-info">Bamouh Imane</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/imane-bamouh-148652251/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3669/3669739.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com/imane.bamouh" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="member-frame">
+                <img src="image2.jpeg" alt="Team Member 2" />
+                <div class="member-info">Belyamani Meryem</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/meryem-belyamani-517b56253/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3669/3669739.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com/meryeme.belyamani" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="member-frame">
+                <img src="image4.jpeg" alt="Team Member 3" />
+                <div class="member-info">Allali Hajar</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/hajar-allali-979b9b253/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3669/3669739.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com/hajar.allali.75" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="member-frame">
+                <img src="image3.jpeg" alt="Team Member 4" />
+                <div class="member-info">Alouache Hafsa</div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/hafsa-alouache-7b8324264/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3669/3669739.png" alt="LinkedIn" />
+                    </a>
+                    <a href="https://www.facebook.com/hafsa.alouache" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+		
+
+        <div class="section3" id="sec3">
+		    <div class="text-column">
+		        <h2>Notre <span class="title2">Mission</span></h2>
+		        <p>Nous sommes un groupe d'étudiants en ingénierie, unissant quatre esprits curieux, s'engageant à transformer les défis quotidiens en opportunités d'innovation. Guidés par la simplicité et la fonctionnalité, nous explorons des idées novatrices, créant un espace où la technologie rencontre la créativité. Notre vision : rendre la complexité accessible, façonnant ainsi un avenir meilleur.</p>
+		    </div>
+		    <div class="img-column">
+		        <img src="https://www.inpt.ac.ma/sites/default/files/ifra%202.png" alt="INPT" />
+		    </div>
+		</div>
+
+        <!-- Section 5: Contact -->
+        
+			<div class="section4" id="sec4">
+		    	<h3 class="contact-title">Feel free to keep in touch with us!</h3>
+		        <div class="contact-info">
+		            <img src="https://cdn-icons-png.flaticon.com/128/2555/2555595.png" alt="User Icon" class="user-icon" />
+		            <p>Rabat – Madinat Al Irfane</p>
+		            <p>avenue Allal Al Fassi - INPT</p>
+		        </div>
+		        <div class="contact-info">
+		            <img src="https://cdn-icons-png.flaticon.com/128/953/953831.png" alt="User Icon" class="user-icon" />
+		            <p>+212 630-976573 : Mme Belyamani</p>
+		            <p>+212 766-099702 : Mme Alouache</p>
+		        </div>
+		        <div class="contact-info">
+		            <img src="https://cdn-icons-png.flaticon.com/128/2165/2165061.png" alt="User Icon" class="user-icon" />
+		            <p>imane.bamouh1999@gmail.com</p>
+		            <p>Allali.hajar163@gmail.com</p>
+		        </div>
+		    </div>
+        
+        
+    </h:form>
+</h:body>
+</html>

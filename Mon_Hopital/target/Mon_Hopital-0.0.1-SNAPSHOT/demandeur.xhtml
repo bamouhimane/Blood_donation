@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:faces="jakarta.faces"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:c="jakarta.tags.core"
+        xmlns:fn="jakarta.tags.functions"
+        xmlns:p="http://primefaces.org/ui">
+
+
+<style>*{
+        margin: 0;
+        padding: 0;
+        font-family:'poppins',sans-serif;
+    
+     }
+     form{
+        position: absolute;
+     
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	       
+        
+        
+     }
+     
+     
+     </style>
+
+
+<h:head>
+    <title> Formulaire d'Inscription</title>
+</h:head>
+<h:form style="display: flex; flex-direction: column; align-items: flex-start;text-align: center;">
+		<p:growl id="maj" showDetail="true" />
+        <h:outputLabel for="nom">Nom :</h:outputLabel>
+        <h:inputText id="nom" value="#{inscriptionBean.demandeur.nom}" required="true" />
+
+
+        <h:outputLabel for="adresse">Adresse :</h:outputLabel>
+        <h:inputText id="adresse" value="#{inscriptionBean.demandeur.adresse}" required="true" />
+
+
+        <h:outputLabel for="telephone">Telephone :</h:outputLabel>
+        <h:inputText id="telephone" value="#{inscriptionBean.demandeur.telephone}" required="true" />
+
+
+        <h:outputLabel for="sexe">Sexe:</h:outputLabel>
+        <h:inputText id="sexe" value="#{inscriptionBean.demandeur.sexe}" required="true" />
+
+
+
+        <h:outputLabel for="age">Age :</h:outputLabel>
+        <h:inputText id="age" value="#{inscriptionBean.demandeur.age}" required="true" />
+
+
+   
+
+<h:outputLabel for="dateNaissance">Date de naissance :</h:outputLabel>
+<p:calendar id="dateNaissance" value="#{inscriptionBean.demandeur.dateNaissance}" required="true" showOn="button"/>
+
+
+
+
+
+
+        <h:outputLabel for="grpS">groupe Sanguin :</h:outputLabel>
+        <h:inputText id="grpS" value="#{inscriptionBean.demandeur.grpS}" required="true" />
+
+
+        <h:outputLabel for="qteSang">Quantité :</h:outputLabel>
+        <h:inputText id="qteSang" value="#{inscriptionBean.demandeur.qteSang}" required="true" />
+        
+        <h:outputLabel for="dateDemande">Date de Demande :</h:outputLabel>
+<p:calendar id="dateDemande" value="#{inscriptionBean.demandeur.dateDemande}" required="true" showOn="button"/>
+
+
+
+        
+        
+        
+        
+        <h:commandButton value="enregistrer" action="#{inscriptionBean.enregistrer}" />
+   
+    </h:form>
+<h:body>
+    
+</h:body>
+
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns:faces="jakarta.faces"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:c="jakarta.tags.core"
+        xmlns:fn="jakarta.tags.functions"
+        xmlns:p="http://primefaces.org/ui">
+
+
+<style>
+	body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #2C3E50;
+    margin-bottom: 40px;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    padding: 0;
+    padding-top: 80px; /* Ajoutez une valeur égale ou supérieure à la hauteur de votre navbar */
+    /*background-image: url(https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&amp;w=2074&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);*/
+    background-image: url(https://images.adsttc.com/media/images/5eb3/37e4/b357/6579/8b00/01be/slideshow/Tabique_divisorio_zona_seca_F-60_%28ISS43%29_%282%29.jpg?1588803535);
+}
+	
+.background-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.brightness-filter {
+    filter: brightness(0.8);
+    opacity:0.8;
+}
+
+			
+		#header {
+		    background-color: #d9ead3;
+		    display: flex;
+		    position: fixed;
+		    align-items: center;
+		    padding: 10px;
+		    width: 100%;
+		    z-index: 100;
+		    top:0;
+		}
+
+
+       .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; /* Ajustez la marge à gauche pour augmenter l'espace entre le logo et le texte */
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .ui-datatable th.ui-state-default {
+	    background-color: white; /* Couleur de fond */
+	    color: #B39A72; /* Couleur du texte */
+	}
+	      .section1 {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #222; /* Darker black color */
+            text-align: center;
+            margin-top:50px;
+            margin-bottom:0;
+        }
+
+       .section1 h1 {
+            color: #000; /* Even darker black color */
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            margin: 0;
+            font-size: 36px; /* Increased font size */
+			text-decoration: underline;
+    		text-decoration-color: #608053; /* Couleur du soulignement */
+    		/*text-decoration-style: double; /* Style du soulignement (par exemple, double, dotted, dashed) */
+    		text-decoration-thickness: 2px;
+        }
+
+        .section1 h1 span {
+            color: #6c805d; /* Set the desired color for the word "Site" */
+        }
+
+        .section1 p {
+		    margin: 5px;
+		    margin-bottom: 20px;
+		    margin-top: 40px;
+		    text-align: center;
+		    line-height: 1.5;
+		    font-family: 'sans-serif;
+		    max-width: 600px;
+			background: transparent;
+			backdrop-filter: blur(8px);
+			font-size:20px;
+			padding:5px;
+		}
+
+		 .section1 p span {
+            color: #6c805d; /* Set the desired color for the word "Site" */
+            font-weight:bold;
+        }
+        
+      
+</style>
+
+<h:head>
+    <title> Formulaire de Modification</title>
+</h:head>
+
+<h:body>
+    <div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a href="acceuilDon.xhtml">Home</a></li>
+                <li><a class="active" href="ModificationDon.xhtml">Modifier votre table</a></li>
+                <li><a href="Donneur.xhtml">Ajouter un donneur</a></li>
+                <li><a href="home.xhtml">Logout</a></li>
+            </ul>
+        	</nav>
+    	</div>  
+  <div class="background-image brightness-filter"></div>
+<h:form id="form">
+             <div class="section1" id="sec1">
+            <h1><span>Modifier</span> les Informations des Donneurs</h1>
+            <p>
+            Bienvenue dans l'interface de modification des informations des donneurs de sang.<br/>
+            En tant que professionnel de la santé, vous avez le pouvoir d'effectuer des modifications
+            pour garantir l'exactitude des données de <span>votre centre.</span>
+            </p>
+            
+        </div>
+        <h3 style="font-family: 'Georgia', 'Times New Roman', Times, serif;color: #000;margin-left:100px;margin-top:50px;margin-bottom:0; backdrop-filter: blur(8px);width:500px">Modifier les données des donneurs de votre centre :</h3>
+    <p:growl id="msgs" showDetail="true"/>
+<div style="max-height: 600px; margin-left: 100px;margin-right: 100px;margin-bottom: 50px;margin-top: 50px; border: 1px solid #ccc; border-radius: 5px;">
+ <p:dataTable id="donneur" var="don" value="#{action.donneurClone}" editable="true" scrollable="true" scrollHeight="550">
+              
+              
+            <p:ajax event="rowEdit" listener="#{action.onRowEdit}" update=":form:msgs"/>
+            <p:ajax event="rowEditCancel" listener="#{action.onRowCancel}" update=":form:msgs"/>
+              
+             
+  <p:column headerText="CIN" style="width:3rem">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{don.CIN}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText id="modelInput" value="#{don.CIN}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="Nom" style="width:3rem">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{don.nom}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{don.nom}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+  			 <p:column headerText="Prénom" style="width:3rem">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{don.prenom}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText  value="#{don.prenom}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            
+            <p:column headerText="Age" style="width:2.5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.age}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.age}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Poids" style="width:2.5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.poids}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.poids}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Taille" style="width:2.5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.taille}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.taille}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Adresse" style="width:5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.adr}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.adr}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Téléphone" style="width:5.5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.tel}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.tel}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+
+      <p:column headerText="Groupe Sanguin" style="width:4rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.gs}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText value="#{don.gs}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Quantité de Sang" style="width:5rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.qgs}"/>
+        </f:facet>
+        <f:facet name="input">
+            <p:inputText  value="#{don.qgs}" style="width:100%"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+<p:column headerText="Date de Don" style="width:6rem">
+    <p:cellEditor>
+        <f:facet name="output">
+            <h:outputText value="#{don.dateDon}"/>
+        </f:facet>
+        <f:facet name="input">
+		<p:calendar id="dateDon" value="#{don.dateDon}" required="true"  style="margin-bottom: 20px; width:100%;"/>
+        </f:facet>
+    </p:cellEditor>
+</p:column>
+
+        <p:column style="width:4rem">
+                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+            </p:column>   
+            
+            
+            </p:dataTable>
+            </div>
+            </h:form>
+</h:body>
+
+</html>

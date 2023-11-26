@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:faces="jakarta.faces"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:c="jakarta.tags.core"
+        xmlns:fn="jakarta.tags.functions"
+        xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Formulaire d'Inscription</title>
+   <style>
+    /* Style pour les panneaux */
+    .panel-style {
+        /* Couleur de fond */
+        border: 2px solid #ddd; /* Bordure */
+        border-radius: 10px;
+        padding: 10px; /* Espace intérieur */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    }
+
+    /* Style pour le texte à l'intérieur des panneaux */
+    .panel-text {
+        color: #333; /* Couleur du texte */
+        font-weight: bold; /* Texte en gras */
+    }
+
+    /* Style pour les en-têtes des panneaux */
+    .ui-panel-title {
+        color: #608053; /* Couleur du texte de l'en-tête */
+        border-radius: 8px 8px 0 0; /* Bordure arrondie pour l'en-tête */
+        padding: 10px; /* Espace intérieur de l'en-tête */
+        font-size: 18px;
+    }
+     #header {
+            background-color: #d9ead3;
+            display: flex;
+            position: fixed;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            z-index:100;
+            margin:0;
+            top:0;
+            left:0;
+        }
+
+        .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; 
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+
+
+}
+</style>
+
+
+</h:head>
+
+<h:body>
+<div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a href="acceuilDemande.xhtml">Home</a></li>
+                <li><a href="demandeur.xhtml">Ajouter une demande</a></li>
+                <li><a href="modification.xhtml">modifier une demande</a></li>
+                <li><a  class="active"  href="demandeTraiter.xhtml">demandes à traiter</a></li>
+                 <li><a href="home.xhtml">log out</a></li>
+                
+            </ul>
+        	</nav>
+    	</div>  
+
+    <h:form>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; width: 1000px; margin: 0 auto;margin-top:100px;">
+
+            <p:panel header="Liste des Demandeurs en Cours" style="flex: 1; margin-left: 20px; max-height: 600px; overflow-y: auto;" styleClass="panel-style">
+                <ui:repeat value="#{inscriptionBean.getEtatEnCours() }" var="demandeur">
+                    <div style="margin-bottom: 10px;" class="panel-text">
+                        <p>
+                            <strong>CNIE:</strong> #{demandeur.CNIE}<br />
+                            <strong>Nom:</strong> #{demandeur.nom}<br />
+                            <strong>Groupe Sanguin:</strong> #{demandeur.grpS}<br />
+                            <strong>Quantité Sang:</strong> #{demandeur.qteSang}<br />
+                            <strong>Date demande:</strong> #{demandeur.dateDemande}<br />
+                        </p>
+                    </div>
+                </ui:repeat>
+            </p:panel>
+
+            <p:panel header=" Liste des Demandeurs Traités " style="flex: 1; margin-left: 20px; max-height: 600px; overflow-y: auto;" styleClass="panel-style">
+                <ui:repeat value="#{inscriptionBean.Etat_Assuré()}" var="dem">
+                    <div style="margin-bottom: 10px;" class="panel-text">
+                        <p>
+                            <strong>CNIE:</strong> #{dem.CNIE}<br />
+                            <strong>Nom:</strong> #{dem.nom}<br />
+                            <strong>Groupe Sanguin:</strong> #{dem.grpS}<br />
+                            <strong>Quantité Sang:</strong> #{dem.qteSang}<br />
+                            <strong>Date demande:</strong> #{dem.dateDemande}<br />
+                        </p>
+                    </div>
+                </ui:repeat>
+            </p:panel>
+
+        </div>
+    </h:form>
+
+</h:body>
+
+</html>

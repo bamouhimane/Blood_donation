@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns:faces="jakarta.faces"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core"
+      xmlns:fn="jakarta.tags.functions"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donneur</title>
+
+        <style type="text/css">
+        
+	body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #2C3E50;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Ajoutez une valeur égale ou supérieure à la hauteur de votre navbar */
+}
+		.container {
+		    max-width: 600px;
+		    margin: 50px 30px; 
+		    /*background-color: #ECF0F1; /* Background color to a light color, e.g., light gray */
+		    background-color:#D9EAD3;
+		    padding: 20px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    border-radius: 5px;
+		}
+		
+		label {
+		    margin-bottom: 5px;
+		    display: block;
+		}
+
+		input[type="text"],
+		select {
+		    width: 80%;
+		    padding: 8px;
+		    margin-bottom: 15px;
+		    box-sizing: border-box;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    font-size: 14px;
+		    height: 38px;
+		    background-color: #fff;
+		    color: #2C3E50;
+		}
+		
+            .ui-datepicker{
+               
+                width:80%;
+            }
+
+            .command-button {
+            	
+                   background-color: #608053;
+   				color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-right: 10px;
+                margin-left: 470px;
+            }
+
+            .command-button:hover {
+                background-color: #4d6b46;
+            }
+            
+            /* Nouveau style pour l'image */
+		.image-container {
+    			float: right;
+    			margin-top: 10px; /* Ajustez selon vos besoins */
+    			margin-right: 40px;
+			}
+
+		.image-container img {
+   				 max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+    			height: auto;
+   				 border-radius: 5px; /* Ajoutez des bordures arrondies si nécessaire */
+   				 position:relative;
+			}
+			
+			
+		#header {
+		    background-color: #d9ead3;
+		    display: flex;
+		    position: fixed;
+		    align-items: center;
+		    padding: 10px;
+		    width: 100%;
+		    z-index: 100;
+		    top:0;
+		}
+
+
+        .logo {
+		    display: flex;
+		    align-items: center;
+		}
+		
+		.logo img {
+		    height: 40px;
+		    margin-right:10px; /* Ajustez la marge à gauche pour augmenter l'espace entre le logo et le texte */
+		    width: 40px;
+		    margin-left:20px;
+		}
+		
+		.logo span {
+		    margin-left: 10px;
+		    float: left;
+		    font-size: 23px;
+		    font-weight: 600;
+		    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		}
+        #navbar {
+            position:fixed;
+            top:0;
+            right:0;
+            padding: 20px;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 10px;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbar a.active {
+            color: #608053;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+      
+        </style>
+    </h:head> 
+
+    <h:body>
+     <div id="header">
+        	<div class="logo">
+            	<img src="https://cdn-icons-png.flaticon.com/128/2069/2069755.png" alt="Logo" />
+            	<span>BloodSite.ma</span>
+       	 	</div>
+        	<nav id="navbar">
+            <ul>
+                <li><a href="acceuilDon.xhtml">Home</a></li>
+                <li><a href="ModificationDon.xhtml">Modifier votre table</a></li>
+                <li><a class="active" href="Donneur.xhtml">Ajouter un donneur</a></li>
+                <li><a href="home.xhtml">Logout</a></li>
+            </ul>
+        	</nav>
+    	</div>  
+          <h1 style="text-align: center; font-weight: bold; margin-top: 20px; font-size: 50px;">
+    		Be a Hero <br/>Donate <span style="color: #608053;">Blood</span>...Save Lives
+    		<hr/>
+		</h1>
+          
+        <h:form>
+         <div class="image-container">
+    			<img src="https://www.hema-quebec.qc.ca/userfiles/image/2023/sang/2023_HQ_Compatibilite_FR_600x600.png" alt="Don sang" />
+			</div>
+
+            <div class="container">
+            	<label for="CIN">CIN</label>
+                <h:inputText id="CIN" value="#{action.donneur.CIN}" />
+            	
+                <label for="nom">Nom</label>
+                <h:inputText id="nom" value="#{action.donneur.nom}" />
+
+                <label for="prenom">Prénom</label>
+                <h:inputText id="prenom" value="#{action.donneur.prenom}" />
+
+                <label for="age">Age</label>
+                <h:inputText id="age" type="text" value="#{action.donneur.age}" />
+
+                <label for="poids">Poids</label>
+                <h:inputText id="poids" type="text" value="#{action.donneur.poids}" />
+
+                <label for="taille">Taille</label>
+                <h:inputText id="taille" type="text" value="#{action.donneur.taille}" />
+
+                <label for="date">Date de don</label>
+                <p:datePicker id="date" value="#{action.donneur.dateDon}"  style="width:560px;" />
+
+                <label for="gs">Groupe Sanguin</label>
+                <h:selectOneMenu id="gs" value="#{action.donneur.gs}" required="true">
+                    <f:selectItem itemLabel="Choisissez un groupe sanguin"  itemValue="" itemDisabled="true"/>
+                    <f:selectItem itemLabel="A+" itemValue="A+" />
+                    <f:selectItem itemLabel="A-" itemValue="A-" />
+                    <f:selectItem itemLabel="B+" itemValue="B+" />
+                    <f:selectItem itemLabel="B-" itemValue="B-" />
+                    <f:selectItem itemLabel="O+" itemValue="O+" />
+                    <f:selectItem itemLabel="O-" itemValue="O-" />
+                    <f:selectItem itemLabel="AB+" itemValue="AB+" />
+                    <f:selectItem itemLabel="AB-" itemValue="AB-" />
+                </h:selectOneMenu>
+
+                <label for="qt">Quantité du sang</label>
+                <h:inputText id="qt" type="text" value="#{action.donneur.qgs}" />
+
+                <label for="adr">Adresse</label>
+                <h:inputText id="adr" value="#{action.donneur.adr}" />
+                
+
+                <label for="tel" >Téléphone</label>
+                <h:inputText id="tel" class="tel" value="#{action.donneur.tel}" />
+				<div>
+                <h:commandButton value="Ajouter" action="#{action.ajouter}" styleClass="command-button" />
+                <!--  <h:commandButton value="Modifier" action="Modification.xhtml" styleClass="command-button" />
+                <h:commandButton value="Consulter" action="Consultation.xhtml" styleClass="command-button" />-->
+                </div>
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>
